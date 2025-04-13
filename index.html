@@ -1,419 +1,104 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <title>Matterlogix 名片</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智慧名片 - 悟森科技</title>
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <style>
-    html, body {
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-    }
-    #app {
-      max-width: 480px;
-      margin: auto;
-      padding: 1rem;
+      background-color: #f7f7f7;
+      color: #333;
+      text-align: center;
     }
     .card {
+      max-width: 480px;
+      margin: auto;
       background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      margin-bottom: 1rem;
-      padding: 1rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
     }
-    pre {
-      font-size: 12px;
-      white-space: pre-wrap;
-      word-break: break-word;
+    .hero {
+      width: 100%;
+      aspect-ratio: 10 / 9;
+      background: url('https://i.postimg.cc/rFXFV2fC/image.jpg') center/cover no-repeat;
     }
+    .content {
+      padding: 20px;
+    }
+    h1 {
+      font-size: 20px;
+      margin: 10px 0 5px;
+    }
+    h2 {
+      font-size: 16px;
+      color: #888;
+      margin: 0 0 10px;
+    }
+    .highlight {
+      font-weight: bold;
+      color: #000;
+      margin: 10px 0;
+    }
+    .desc {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 8px;
+      white-space: pre-line;
+    }
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      padding: 0 10px 20px;
+    }
+    .buttons a {
+      flex: 1 1 40%;
+      text-decoration: none;
+      padding: 10px 0;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .line { background: #00C300; }
+    .instagram { background: #C13584; }
+    .facebook { background: #1877F2; }
+    .youtube { background: #FF0000; }
+    .map { background: #000000; }
   </style>
 </head>
 <body>
-  <div id="app">
-    <h2 style="text-align:center;">✨ Matterlogix Flex 名片</h2>
-    <div id="flexCard" class="card">
-      <pre id="jsonOutput">Loading...</pre>
+  <div class="card">
+    <div class="hero"></div>
+    <div class="content">
+      <h1>悟森科技</h1>
+      <h2>Mr.Homekit 正中</h2>
+      <div class="highlight">上游產品供應商</div>
+      <div class="desc">智能家居、智慧空間規劃\n燈光設計、窗捲簾應用</div>
+      <div class="highlight">作品集👇🏻</div>
+    </div>
+    <div class="buttons">
+      <a href="https://line.me/ti/p/P7NMR0Io7V" class="line">LINE</a>
+      <a href="https://www.instagram.com/matterlogix" class="instagram">Instagram</a>
+      <a href="https://www.facebook.com/profile.php?id=61566203694803" class="facebook">Facebook</a>
+      <a href="https://www.youtube.com/@Matterlogix" class="youtube">YouTube</a>
+      <a href="https://maps.app.goo.gl/i731MivUVvUsL2Nf6" class="map">MAP</a>
     </div>
   </div>
 
   <script>
-    const flexMessage = {
-  "type": "carousel",
-  "contents": [
-    {
-      "type": "bubble",
-      "size": "deca",
-      "hero": {
-        "type": "image",
-        "url": "https://i.postimg.cc/rFXFV2fC/image.jpg",
-        "size": "full",
-        "aspectMode": "cover",
-        "aspectRatio": "10:9",
-        "backgroundColor": "#000000"
-      },
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "spacing": "sm",
-        "contents": [
-          {
-            "type": "text",
-            "text": "悟森科技",
-            "weight": "bold",
-            "size": "lg",
-            "align": "center",
-            "wrap": true,
-            "color": "#333333"
-          },
-          {
-            "type": "text",
-            "text": "Mr.Homekit 正中",
-            "wrap": true,
-            "weight": "bold",
-            "size": "sm",
-            "color": "#888888",
-            "align": "center"
-          },
-          {
-            "type": "text",
-            "text": "上游產品供應商",
-            "wrap": true,
-            "weight": "bold",
-            "size": "sm",
-            "color": "#000000",
-            "align": "center"
-          },
-          {
-            "type": "text",
-            "text": "智能家居、智慧空間規劃\n燈光設計、窗捲簾應用",
-            "wrap": true,
-            "size": "sm",
-            "color": "#555555",
-            "align": "center"
-          },
-          {
-            "type": "text",
-            "text": "作品集👇🏻",
-            "wrap": true,
-            "weight": "bold",
-            "size": "sm",
-            "color": "#000000",
-            "align": "center"
-          }
-        ]
-      },
-      "footer": {
-        "type": "box",
-        "layout": "vertical",
-        "spacing": "sm",
-        "contents": [
-          {
-            "type": "button",
-            "style": "primary",
-            "color": "#00C300",
-            "height": "sm",
-            "action": {
-              "type": "uri",
-              "label": "LINE",
-              "uri": "https://line.me/ti/p/P7NMR0Io7V"
-            }
-          },
-          {
-            "type": "box",
-            "layout": "horizontal",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "button",
-                "style": "primary",
-                "height": "sm",
-                "color": "#C13584",
-                "action": {
-                  "type": "uri",
-                  "label": "Instagram",
-                  "uri": "https://www.instagram.com/matterlogix"
-                }
-              },
-              {
-                "type": "button",
-                "style": "primary",
-                "height": "sm",
-                "color": "#1877F2",
-                "action": {
-                  "type": "uri",
-                  "label": "Facebook",
-                  "uri": "https://www.facebook.com/profile.php?id=61566203694803"
-                }
-              }
-            ]
-          },
-          {
-            "type": "box",
-            "layout": "horizontal",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "button",
-                "style": "primary",
-                "height": "sm",
-                "color": "#FF0000",
-                "action": {
-                  "type": "uri",
-                  "label": "YouTube",
-                  "uri": "https://www.youtube.com/@Matterlogix"
-                }
-              },
-              {
-                "type": "button",
-                "style": "primary",
-                "height": "sm",
-                "color": "#FDD835",
-                "action": {
-                  "type": "uri",
-                  "label": "Map",
-                  "uri": "https://maps.app.goo.gl/i731MivUVvUsL2Nf6"
-                }
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "type": "bubble",
-      "size": "deca",
-      "hero": {
-        "type": "image",
-        "url": "https://i.postimg.cc/VL5VGQK8/removebg-preview.png",
-        "size": "full",
-        "aspectMode": "cover",
-        "aspectRatio": "10:9",
-        "backgroundColor": "#FFFFFF"
-      },
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "spacing": "sm",
-        "contents": [
-          {
-            "type": "text",
-            "text": "短影音拍攝",
-            "weight": "bold",
-            "size": "lg",
-            "align": "center",
-            "wrap": true,
-            "color": "#333333"
-          },
-          {
-            "type": "text",
-            "text": "新手爸爸",
-            "wrap": true,
-            "weight": "bold",
-            "size": "sm",
-            "color": "#888888",
-            "align": "center"
-          },
-          {
-            "type": "text",
-            "text": "公司形象拍攝、短影音\n自媒體、個人採訪",
-            "wrap": true,
-            "size": "sm",
-            "color": "#555555",
-            "align": "center"
-          },
-          {
-            "type": "text",
-            "text": "作品集👇🏻",
-            "wrap": true,
-            "weight": "bold",
-            "size": "sm",
-            "color": "#000000",
-            "align": "center"
-          }
-        ]
-      },
-      "footer": {
-        "type": "box",
-        "layout": "vertical",
-        "spacing": "sm",
-        "contents": [
-          {
-            "type": "box",
-            "layout": "horizontal",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "button",
-                "style": "primary",
-                "height": "sm",
-                "color": "#C13584",
-                "action": {
-                  "type": "uri",
-                  "label": "Instagram",
-                  "uri": "https://www.instagram.com/mariuszheng"
-                }
-              },
-              {
-                "type": "button",
-                "style": "primary",
-                "height": "sm",
-                "color": "#1877F2",
-                "action": {
-                  "type": "uri",
-                  "label": "Facebook",
-                  "uri": "https://www.facebook.com/share/1BYme3YdeU/?mibextid=wwXIfr"
-                }
-              }
-            ]
-          },
-          {
-            "type": "box",
-            "layout": "horizontal",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "button",
-                "style": "primary",
-                "height": "sm",
-                "color": "#FF0000",
-                "action": {
-                  "type": "uri",
-                  "label": "YouTube",
-                  "uri": "https://www.youtube.com/@Mr.Homekit"
-                }
-              },
-              {
-                "type": "button",
-                "style": "primary",
-                "height": "sm",
-                "color": "#000000",
-                "action": {
-                  "type": "uri",
-                  "label": "TikTok",
-                  "uri": "https://www.tiktok.com/@zheng_zhung"
-                }
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "type": "bubble",
-      "size": "deca",
-      "hero": {
-        "type": "image",
-        "url": "https://i.postimg.cc/fLHX3Fnz/D897-FFE3-FADC-48-FA-916-F-AB5-D3-B3572-FD.jpg",
-        "size": "full",
-        "aspectMode": "cover",
-        "aspectRatio": "10:9",
-        "backgroundColor": "#F5F5F5"
-      },
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "spacing": "sm",
-        "contents": [
-          {
-            "type": "text",
-            "text": "音樂教室",
-            "weight": "bold",
-            "size": "lg",
-            "align": "center",
-            "wrap": true,
-            "color": "#333333"
-          },
-          {
-            "type": "text",
-            "text": "Sina_Violin",
-            "wrap": true,
-            "weight": "bold",
-            "size": "sm",
-            "color": "#888888",
-            "align": "center"
-          },
-          {
-            "type": "text",
-            "text": "鋼琴、小提琴\n教學、販售",
-            "wrap": true,
-            "size": "sm",
-            "color": "#555555",
-            "align": "center"
-          },
-          {
-            "type": "text",
-            "text": "作品集👇🏻",
-            "wrap": true,
-            "weight": "bold",
-            "size": "sm",
-            "color": "#000000",
-            "align": "center"
-          }
-        ]
-      },
-      "footer": {
-        "type": "box",
-        "layout": "vertical",
-        "spacing": "sm",
-        "contents": [
-          {
-            "type": "button",
-            "style": "primary",
-            "height": "sm",
-            "color": "#00C300",
-            "action": {
-              "type": "uri",
-              "label": "LINE",
-              "uri": "https://lin.ee/r0upmzQ"
-            }
-          },
-          {
-            "type": "box",
-            "layout": "horizontal",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "button",
-                "style": "primary",
-                "height": "sm",
-                "color": "#C13584",
-                "action": {
-                  "type": "uri",
-                  "label": "Instagram",
-                  "uri": "https://www.instagram.com/sina__violin"
-                }
-              },
-              {
-                "type": "button",
-                "style": "primary",
-                "height": "sm",
-                "color": "#1877F2",
-                "action": {
-                  "type": "uri",
-                  "label": "Facebook",
-                  "uri": "https://www.facebook.com/profile.php?id=61564267257708"
-                }
-              }
-            ]
-          }
-        ]
-      }
-    }
-  ]
-};
-
-    document.getElementById('jsonOutput').innerText = JSON.stringify(flexMessage, null, 2);
-
-    liff.init({ liffId: "2007251349-rdRxeWm3" })
+    liff.init({ liffId: "YOUR_LIFF_ID" })
       .then(() => {
         if (!liff.isLoggedIn()) {
           liff.login();
-        } else {
-          console.log("LIFF logged in ✅");
         }
       })
-      .catch(err => console.error('LIFF Init Error', err));
+      .catch(err => console.error("LIFF init failed", err));
   </script>
 </body>
 </html>
